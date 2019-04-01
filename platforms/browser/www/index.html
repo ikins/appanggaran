@@ -159,36 +159,39 @@
 
             <!-- Content -->
             <ons-row class="page-content-header">
-              <ons-col>
-                <div class="circle image_position">
-                  <img ng-src="img/logo.png" width="80" class="img_center">
-                </div>
-                <div class="title-header">
-                    Aplikasi Monitoring Pelaksanaan Anggaran<br>
-                    Kementerian Pertahanan Republik Indonesia
-                </div>
-              </ons-col>
+                <ons-col width="30%">
+                    <div class="logo-header">
+                        <img ng-src="img/logo.png" width="60">
+                    </div>
+                </ons-col>
+                <ons-col>
+                    <div class="title-header">
+                        <div class="am">Aplikasi Monitoring Pelaksanaan Anggaran</div>
+                        <div>Kementerian Pertahanan Republik Indonesia</div>
+                    </div>
+                </ons-col>
             </ons-row>
-            <div class="dashboard-chart">
-                <ons-row class="page-chart-dashboard">
-                    <ons-col>
-                      <highchart config="pieChart" style="height: 170px; margin: 0 auto"></highchart>
-                    </ons-col>
-                </ons-row>
-            </div>
             <div class="dashboard-total-anggaran">
-                <ons-row class="page-ta">
-                    <ons-col>
+                <ons-row>
+                    <ons-col class="page-ta">
                       <div class="ta">Total Anggaran</div>
                       <div class="ta-nominal">Rp. 107.7 Trilliun</div>
+                    </ons-col>
+                    <ons-col class="page-pd">
+                      <div class="pd">Penerimaan Anggaran</div>
+                      <div class="pd-nominal">Rp. 15.7 Trilliun</div>
                     </ons-col>
                 </ons-row>
             </div>
             <div class="dashboard-penyerapan-anggaran">
-                <ons-row class="page-pa">
-                    <ons-col>
+                <ons-row>
+                    <ons-col class="page-pa">
                       <div class="pa">Penyerapan Anggaran</div>
                       <div class="pa-nominal">Rp. 48.5 Trilliun</div>
+                    </ons-col>
+                    <ons-col class="page-pn">
+                      <div class="pn">Pendapatan Negara</div>
+                      <div class="pn-nominal">Rp. 10.7 Trilliun</div>
                     </ons-col>
                 </ons-row>
             </div>
@@ -300,14 +303,6 @@
                   </a>
                 </ons-col>
               </ons-row>
-              <ons-row class="page-content-warning buttom-position">
-                <ons-col>
-                  <div class="info-warning">
-                    <i class="fa fa-warning"></i> 
-                    <a href="#" title="Info Terkini" class="info-dashboard" ng-click="data.msg=x.Id" onclick="fn.load('pengumuman-detail.html')">Satuan Kerja 010 Melakukan Realisasi Anggaran</a>
-                  </div>
-                </ons-col>
-              </ons-row>
             </div>
 
             
@@ -348,9 +343,7 @@
           <ons-page ng-controller="PagePenyerapanPerjenisAnggaran" id="contentpage">
             <ons-toolbar class="toolbar">
               <div class="left">
-                <!-- <ons-toolbar-button onclick="fn.open()">
-                  <ons-icon icon="md-menu"></ons-icon>
-                </ons-toolbar-button> -->
+                <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
               </div>
               <div class="center toolbar-head-title">
                 Penyerapan Perjenis Anggaran
@@ -413,6 +406,541 @@
           </ons-page>
         </template>
 
+        <!-- Pendapatan Negara -->
+        <template id="pendapatan-negara.html">
+          <ons-page ng-controller="PagePendapatanNegara" id="contentpage">
+            <ons-toolbar class="toolbar">
+              <div class="left">
+                <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
+              </div>
+              <div class="center toolbar-head-title">
+                Pendapatan Negara
+              </div>
+              <div class="right">
+                <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
+              </div>
+            </ons-toolbar>
+
+
+            
+            <!-- Content -->
+            <ons-row class="page-content">
+                <div class="search-bar">
+                  <i class="icon fa fa-search"></i>
+                  <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
+                </div>
+            </ons-row>
+
+            <!-- Content -->
+            <div class="dashboard-chart">
+                <ons-row class="page-chart-dashboard">
+                    <ons-col>
+                      <div id="ppaChart" style="margin: 0 auto"></div>
+                    </ons-col>
+                </ons-row>
+            </div>
+            <!-- Table Content -->
+
+            
+            
+            <ons-popover id="popover-dialog" cancelable direction="down" cover-target target="#info-button">
+              <ons-list id="popover-list">
+                <ons-list-item class="more-options" onclick="fn.load('dashboard.html')" tappable>
+                  <div class="center">Home</div>
+                </ons-list-item>
+                <ons-list-item class="more-options" ng-click="logout()" tappable>
+                  <div class="center">Logout</div>
+                </ons-list-item>
+              </ons-list>
+            </ons-popover>
+            
+            <script>
+              ons.getScriptPage().onInit = function () {
+
+                var toolbarButton = ons.platform.isAndroid() ? ons.createElement(`<ons-icon icon="md-more-vert"></ons-icon>`) : ons.createElement(`<span><i class="zmdi zmdi-more-vert"></i></span>`);
+                var infoButton = document.getElementById('info-button');
+                infoButton.appendChild(toolbarButton);
+                
+                window.fn.showDialog = function (id) {
+                  var elem = document.getElementById(id);
+                  if (id === 'popover-dialog') {
+                    elem.show(infoButton);
+                  }
+                };
+              
+              };
+            </script>
+
+          </ons-page>
+        </template>
+
+        <!-- Penyerapan Anggaran Persatuan Kerja -->
+        <template id="penyerapan-anggaran-persatuan-kerja.html">
+          <ons-page ng-controller="PagePenyerapanAnggaranPersatuanKerja" id="contentpage">
+            <ons-toolbar class="toolbar">
+              <div class="left">
+                <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
+              </div>
+              <div class="center toolbar-head-title">
+                Penyerapan Anggaran Persatuan Kerja
+              </div>
+              <div class="right">
+                <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
+              </div>
+            </ons-toolbar>
+
+
+            
+            <!-- Content -->
+            <ons-row class="page-content">
+                <div class="search-bar">
+                  <i class="icon fa fa-search"></i>
+                  <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
+                </div>
+            </ons-row>
+
+            <!-- Content -->
+            <div class="dashboard-chart">
+                <ons-row class="page-chart-dashboard">
+                    <ons-col>
+                      <div id="ppaChart" style="margin: 0 auto"></div>
+                    </ons-col>
+                </ons-row>
+            </div>
+            <!-- Table Content -->
+
+            
+            
+            <ons-popover id="popover-dialog" cancelable direction="down" cover-target target="#info-button">
+              <ons-list id="popover-list">
+                <ons-list-item class="more-options" onclick="fn.load('dashboard.html')" tappable>
+                  <div class="center">Home</div>
+                </ons-list-item>
+                <ons-list-item class="more-options" ng-click="logout()" tappable>
+                  <div class="center">Logout</div>
+                </ons-list-item>
+              </ons-list>
+            </ons-popover>
+            
+            <script>
+              ons.getScriptPage().onInit = function () {
+
+                var toolbarButton = ons.platform.isAndroid() ? ons.createElement(`<ons-icon icon="md-more-vert"></ons-icon>`) : ons.createElement(`<span><i class="zmdi zmdi-more-vert"></i></span>`);
+                var infoButton = document.getElementById('info-button');
+                infoButton.appendChild(toolbarButton);
+                
+                window.fn.showDialog = function (id) {
+                  var elem = document.getElementById(id);
+                  if (id === 'popover-dialog') {
+                    elem.show(infoButton);
+                  }
+                };
+              
+              };
+            </script>
+
+          </ons-page>
+        </template>
+
+        <!-- Penyerapan Anggaran Perbulan -->
+        <template id="penyerapan-anggaran-perbulan.html">
+          <ons-page ng-controller="PagePenyerapanAnggaranPerbulan" id="contentpage">
+            <ons-toolbar class="toolbar">
+              <div class="left">
+                <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
+              </div>
+              <div class="center toolbar-head-title">
+                Penyerapan Anggaran Perbulan
+              </div>
+              <div class="right">
+                <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
+              </div>
+            </ons-toolbar>
+
+
+            
+            <!-- Content -->
+            <ons-row class="page-content">
+                <div class="search-bar">
+                  <i class="icon fa fa-search"></i>
+                  <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
+                </div>
+            </ons-row>
+
+            <!-- Content -->
+            <div class="dashboard-chart">
+                <ons-row class="page-chart-dashboard">
+                    <ons-col>
+                      <div id="papbChart" style="margin: 0 auto"></div>
+                    </ons-col>
+                </ons-row>
+            </div>
+            <!-- Table Content -->
+
+            
+            
+            <ons-popover id="popover-dialog" cancelable direction="down" cover-target target="#info-button">
+              <ons-list id="popover-list">
+                <ons-list-item class="more-options" onclick="fn.load('dashboard.html')" tappable>
+                  <div class="center">Home</div>
+                </ons-list-item>
+                <ons-list-item class="more-options" ng-click="logout()" tappable>
+                  <div class="center">Logout</div>
+                </ons-list-item>
+              </ons-list>
+            </ons-popover>
+            
+            <script>
+              ons.getScriptPage().onInit = function () {
+
+                var toolbarButton = ons.platform.isAndroid() ? ons.createElement(`<ons-icon icon="md-more-vert"></ons-icon>`) : ons.createElement(`<span><i class="zmdi zmdi-more-vert"></i></span>`);
+                var infoButton = document.getElementById('info-button');
+                infoButton.appendChild(toolbarButton);
+                
+                window.fn.showDialog = function (id) {
+                  var elem = document.getElementById(id);
+                  if (id === 'popover-dialog') {
+                    elem.show(infoButton);
+                  }
+                };
+              
+              };
+            </script>
+
+          </ons-page>
+        </template>
+
+        <!-- 10 Satuan Kerja -->
+        <template id="10-satuan-kerja.html">
+          <ons-page ng-controller="Page10SatuanKerja" id="contentpage">
+            <ons-toolbar class="toolbar">
+              <div class="left">
+                <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
+              </div>
+              <div class="center toolbar-head-title">
+                10 Satuan Kerja
+              </div>
+              <div class="right">
+                <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
+              </div>
+            </ons-toolbar>
+
+
+            
+            <!-- Content -->
+            <ons-row class="page-content">
+                <div class="search-bar">
+                  <i class="icon fa fa-search"></i>
+                  <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
+                </div>
+            </ons-row>
+
+            <!-- Content -->
+            <div class="dashboard-chart">
+                <ons-row class="page-chart-dashboard">
+                    <ons-col>
+                      <div id="10SatuanChart" style="margin: 0 auto"></div>
+                    </ons-col>
+                </ons-row>
+            </div>
+            <!-- Table Content -->
+
+            
+            
+            <ons-popover id="popover-dialog" cancelable direction="down" cover-target target="#info-button">
+              <ons-list id="popover-list">
+                <ons-list-item class="more-options" onclick="fn.load('dashboard.html')" tappable>
+                  <div class="center">Home</div>
+                </ons-list-item>
+                <ons-list-item class="more-options" ng-click="logout()" tappable>
+                  <div class="center">Logout</div>
+                </ons-list-item>
+              </ons-list>
+            </ons-popover>
+            
+            <script>
+              ons.getScriptPage().onInit = function () {
+
+                var toolbarButton = ons.platform.isAndroid() ? ons.createElement(`<ons-icon icon="md-more-vert"></ons-icon>`) : ons.createElement(`<span><i class="zmdi zmdi-more-vert"></i></span>`);
+                var infoButton = document.getElementById('info-button');
+                infoButton.appendChild(toolbarButton);
+                
+                window.fn.showDialog = function (id) {
+                  var elem = document.getElementById(id);
+                  if (id === 'popover-dialog') {
+                    elem.show(infoButton);
+                  }
+                };
+              
+              };
+            </script>
+
+          </ons-page>
+        </template>
+
+        <!-- Satuan Kerja Terlambat Melaporkan -->
+        <template id="satuan-kerja-terlambat-melaporkan.html">
+          <ons-page ng-controller="Page10SatuanKerja" id="contentpage">
+            <ons-toolbar class="toolbar">
+              <div class="left">
+                <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
+              </div>
+              <div class="center toolbar-head-title">
+                Satuan Kerja Terlambat Melaporkan
+              </div>
+              <div class="right">
+                <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
+              </div>
+            </ons-toolbar>
+
+            <!-- Content -->
+            <ons-row class="page-content">
+                <div class="search-bar">
+                  <i class="icon fa fa-search"></i>
+                  <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
+                </div>
+                <div class="box-list">
+                    <div class="title">Satuan Kerja I</div>
+                </div>
+            </ons-row>
+
+            
+            
+            <ons-popover id="popover-dialog" cancelable direction="down" cover-target target="#info-button">
+              <ons-list id="popover-list">
+                <ons-list-item class="more-options" onclick="fn.load('dashboard.html')" tappable>
+                  <div class="center">Home</div>
+                </ons-list-item>
+                <ons-list-item class="more-options" ng-click="logout()" tappable>
+                  <div class="center">Logout</div>
+                </ons-list-item>
+              </ons-list>
+            </ons-popover>
+            
+            <script>
+              ons.getScriptPage().onInit = function () {
+
+                var toolbarButton = ons.platform.isAndroid() ? ons.createElement(`<ons-icon icon="md-more-vert"></ons-icon>`) : ons.createElement(`<span><i class="zmdi zmdi-more-vert"></i></span>`);
+                var infoButton = document.getElementById('info-button');
+                infoButton.appendChild(toolbarButton);
+                
+                window.fn.showDialog = function (id) {
+                  var elem = document.getElementById(id);
+                  if (id === 'popover-dialog') {
+                    elem.show(infoButton);
+                  }
+                };
+              
+              };
+            </script>
+
+          </ons-page>
+        </template>
+
+        <!-- Penyerapan Anggaran 5 Tahun Terakhir -->
+        <template id="penyerapan-anggaran-5-tahun-terakhir.html">
+          <ons-page ng-controller="PagePenyerapanAnggaran5TahunTerakhir" id="contentpage">
+            <ons-toolbar class="toolbar">
+              <div class="left">
+                <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
+              </div>
+              <div class="center toolbar-head-title">
+                Penyerapan Anggaran 5 Tahun Terakhir
+              </div>
+              <div class="right">
+                <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
+              </div>
+            </ons-toolbar>
+
+
+            
+            <!-- Content -->
+            <ons-row class="page-content">
+                <div class="search-bar">
+                  <i class="icon fa fa-search"></i>
+                  <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
+                </div>
+            </ons-row>
+
+            <!-- Content -->
+            <div class="dashboard-chart">
+                <ons-row class="page-chart-dashboard">
+                    <ons-col>
+                      <div id="5TahunChart" style="margin: 0 auto"></div>
+                    </ons-col>
+                </ons-row>
+            </div>
+            <!-- Table Content -->
+
+            
+            
+            <ons-popover id="popover-dialog" cancelable direction="down" cover-target target="#info-button">
+              <ons-list id="popover-list">
+                <ons-list-item class="more-options" onclick="fn.load('dashboard.html')" tappable>
+                  <div class="center">Home</div>
+                </ons-list-item>
+                <ons-list-item class="more-options" ng-click="logout()" tappable>
+                  <div class="center">Logout</div>
+                </ons-list-item>
+              </ons-list>
+            </ons-popover>
+            
+            <script>
+              ons.getScriptPage().onInit = function () {
+
+                var toolbarButton = ons.platform.isAndroid() ? ons.createElement(`<ons-icon icon="md-more-vert"></ons-icon>`) : ons.createElement(`<span><i class="zmdi zmdi-more-vert"></i></span>`);
+                var infoButton = document.getElementById('info-button');
+                infoButton.appendChild(toolbarButton);
+                
+                window.fn.showDialog = function (id) {
+                  var elem = document.getElementById(id);
+                  if (id === 'popover-dialog') {
+                    elem.show(infoButton);
+                  }
+                };
+              
+              };
+            </script>
+
+          </ons-page>
+        </template>
+
+
+        <!-- Penyerapan Kegiatan Prioritas -->
+        <template id="penyerapan-kegiatan-prioritas.html">
+          <ons-page ng-controller="PagePenyerapanKegiatanPrioritas" id="contentpage">
+            <ons-toolbar class="toolbar">
+              <div class="left">
+                <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
+              </div>
+              <div class="center toolbar-head-title">
+                Penyerapan Kegiatan Prioritas
+              </div>
+              <div class="right">
+                <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
+              </div>
+            </ons-toolbar>
+
+
+            
+            <!-- Content -->
+            <ons-row class="page-content">
+                <div class="search-bar">
+                  <i class="icon fa fa-search"></i>
+                  <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
+                </div>
+            </ons-row>
+
+            <!-- Content -->
+            <div class="dashboard-chart">
+                <ons-row class="page-chart-dashboard">
+                    <ons-col>
+                      <div id="ppaChart" style="margin: 0 auto"></div>
+                    </ons-col>
+                </ons-row>
+            </div>
+            <!-- Table Content -->
+
+            
+            
+            <ons-popover id="popover-dialog" cancelable direction="down" cover-target target="#info-button">
+              <ons-list id="popover-list">
+                <ons-list-item class="more-options" onclick="fn.load('dashboard.html')" tappable>
+                  <div class="center">Home</div>
+                </ons-list-item>
+                <ons-list-item class="more-options" ng-click="logout()" tappable>
+                  <div class="center">Logout</div>
+                </ons-list-item>
+              </ons-list>
+            </ons-popover>
+            
+            <script>
+              ons.getScriptPage().onInit = function () {
+
+                var toolbarButton = ons.platform.isAndroid() ? ons.createElement(`<ons-icon icon="md-more-vert"></ons-icon>`) : ons.createElement(`<span><i class="zmdi zmdi-more-vert"></i></span>`);
+                var infoButton = document.getElementById('info-button');
+                infoButton.appendChild(toolbarButton);
+                
+                window.fn.showDialog = function (id) {
+                  var elem = document.getElementById(id);
+                  if (id === 'popover-dialog') {
+                    elem.show(infoButton);
+                  }
+                };
+              
+              };
+            </script>
+
+          </ons-page>
+        </template>
+
+        <!-- Perkembangan Pengadaan Alutsista -->
+        <template id="perkembangan-pengadaan-alutsista.html">
+          <ons-page ng-controller="PagePerkembanganPengadaanAlutsista" id="contentpage">
+            <ons-toolbar class="toolbar">
+              <div class="left">
+                <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
+              </div>
+              <div class="center toolbar-head-title">
+                Perkembangan Pengadaan Alutsista
+              </div>
+              <div class="right">
+                <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
+              </div>
+            </ons-toolbar>
+
+
+            
+            <!-- Content -->
+            <ons-row class="page-content">
+                <div class="search-bar">
+                  <i class="icon fa fa-search"></i>
+                  <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
+                </div>
+            </ons-row>
+
+            <!-- Content -->
+            <div class="dashboard-chart">
+                <ons-row class="page-chart-dashboard">
+                    <ons-col>
+                      <div id="ppaChart" style="margin: 0 auto"></div>
+                    </ons-col>
+                </ons-row>
+            </div>
+            <!-- Table Content -->
+
+            
+            
+            <ons-popover id="popover-dialog" cancelable direction="down" cover-target target="#info-button">
+              <ons-list id="popover-list">
+                <ons-list-item class="more-options" onclick="fn.load('dashboard.html')" tappable>
+                  <div class="center">Home</div>
+                </ons-list-item>
+                <ons-list-item class="more-options" ng-click="logout()" tappable>
+                  <div class="center">Logout</div>
+                </ons-list-item>
+              </ons-list>
+            </ons-popover>
+            
+            <script>
+              ons.getScriptPage().onInit = function () {
+
+                var toolbarButton = ons.platform.isAndroid() ? ons.createElement(`<ons-icon icon="md-more-vert"></ons-icon>`) : ons.createElement(`<span><i class="zmdi zmdi-more-vert"></i></span>`);
+                var infoButton = document.getElementById('info-button');
+                infoButton.appendChild(toolbarButton);
+                
+                window.fn.showDialog = function (id) {
+                  var elem = document.getElementById(id);
+                  if (id === 'popover-dialog') {
+                    elem.show(infoButton);
+                  }
+                };
+              
+              };
+            </script>
+
+          </ons-page>
+        </template>
         
 
 

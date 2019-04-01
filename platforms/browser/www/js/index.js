@@ -66,8 +66,8 @@ appang.controller('getCurrentInfoWeek', ['$scope', '$http','ipCookie', function(
 
     $scope.logout = function(){
         window.localStorage.removeItem("user_id");
-
-        fn.load('login.html');
+        window.localStorage.removeItem("user_pin");
+        fn.load('landing-page.html');
     };
 
     $scope.refresh = function(){
@@ -350,7 +350,7 @@ appang.controller('PagePenyerapanPerjenisAnggaran', ['$scope', '$http', function
       var chartConfig = {
 
         chart: { 
-              type: 'line',
+              type: 'column',
           backgroundColor:'#ffffff'
             },
         colors: ['#06693c','#f47a27','#4284c1'],
@@ -446,7 +446,294 @@ appang.controller('PagePenyerapanPerjenisAnggaran', ['$scope', '$http', function
     $('#ppaChart').highcharts(chartConfig);
 
 
+}]);
+
+appang.controller('PagePendapatanNegara', ['$scope', '$http', function($scope, $http) {
+
+}]);
+
+appang.controller('PagePenyerapanAnggaranPersatuanKerja', ['$scope', '$http', function($scope, $http) {
+
+      var year_current = (new Date()).getFullYear();
+
+      var chartConfig = {
+
+        chart: {
+        type: 'bar'
+        },
+        title: {
+            text: ''
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: ['Satuan Kerja I', 'Satuan Kerja II'],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' millions'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            },column: {
+              colorByPoint: true
+          }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 80,
+            floating: true,
+            borderWidth: 1,
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+          showInLegend: false,
+            name: 'Year 2019',
+            data: [107,90]
+        }]
+
+    };
+
+      Highcharts.setOptions({
+      lang: {
+        thousandsSep: ','
+      }
+    });
+
+    $scope.chartConfig = chartConfig;
+    $('#ppaChart').highcharts(chartConfig);
+
+
 }]); 
+
+appang.controller('PagePenyerapanAnggaranPerbulan', ['$scope', '$http', function($scope, $http) {
+
+      var year_current = (new Date()).getFullYear();
+
+      var chartConfig = {
+
+        chart: {
+        type: 'line'
+        },
+        title: {
+            text: ''
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title: {
+                text: 'Nominal Anggaran'
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Satuan Kerja I',
+            data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+        }, {
+            name: 'Satuan Kerja II',
+            data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+        }]
+    };
+
+      Highcharts.setOptions({
+      lang: {
+        thousandsSep: ','
+      }
+    });
+
+    $scope.chartConfig = chartConfig;
+    $('#papbChart').highcharts(chartConfig);
+
+
+}]);
+
+
+appang.controller('Page10SatuanKerja', ['$scope', '$http', function($scope, $http) {
+
+      var year_current = (new Date()).getFullYear();
+
+      var chartConfig = {
+
+        chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+        },
+        title: {
+            text: ''
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    distance: -30
+                },
+                allowPointSelect: true,
+                cursor: 'pointer',
+                showInLegend: true
+            }
+        },
+        credits: {
+          enabled: false
+        },
+        colors: ['#d38406', '#0073b7', '#00a65a', '#ba2727', '#61115b', '#0aad07', '#e70099', '#e73a0c', '#98iu87', '#839715'],
+        series: [{
+            name: 'Anggaran',
+            colorByPoint: true,
+            data: [{
+                name: 'Satuan Kerja I',
+                y: 107,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Satuan Kerja II',
+                y: 100.9
+            },{
+                name: 'Satuan Kerja III',
+                y: 89.5
+            },{
+                name: 'Satuan Kerja IV',
+                y: 59.1
+            },{
+                name: 'Satuan Kerja V',
+                y: 78.3
+            },{
+                name: 'Satuan Kerja VI',
+                y: 45
+            },{
+                name: 'Satuan Kerja VII',
+                y: 140
+            },{
+                name: 'Satuan Kerja VIII',
+                y: 210
+            },{
+                name: 'Satuan Kerja IX',
+                y: 80
+            },{
+                name: 'Satuan Kerja X',
+                y: 68
+            },]
+        }]
+    };
+
+      Highcharts.setOptions({
+      lang: {
+        thousandsSep: ','
+      }
+    });
+
+    $scope.chartConfig = chartConfig;
+    $('#10SatuanChart').highcharts(chartConfig);
+
+
+}]);
+
+appang.controller('PagePenyerapanAnggaran5TahunTerakhir', ['$scope', '$http', function($scope, $http) {
+
+      var year_current = (new Date()).getFullYear();
+
+      var chartConfig = {
+
+        chart: {
+        type: 'column'
+        },
+        title: {
+            text: 'Penyerapan Anggaran 5 Tahun Terakhir'
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: [
+                '2015',
+                '2016',
+                '2017',
+                '2018',
+                '2019',
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Rupiah (Rp)'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },    
+        credits: {
+            enabled: false
+        },
+        series: [{
+          showInLegend: false,
+            name: '2019',
+            data: [49.9, 71.5, 106.4, 129.2, 144.0]
+
+        }]
+    };
+
+      Highcharts.setOptions({
+      lang: {
+        thousandsSep: ','
+      }
+    });
+
+    $scope.chartConfig = chartConfig;
+    $('#5TahunChart').highcharts(chartConfig);
+
+
+}]);
 
 
 //--------------------------------------------------------------------LINK------------------------------------------

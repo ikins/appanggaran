@@ -19,10 +19,15 @@ body{
   background-color: #ffffff;
 }
 #landing-contentpage .page__background, #login-contentpage .page__background {
-  background-color: #404040;
+  background-color: #116399;
 }
 
-.dashboard-content, .dashboard-chart{
+.dashboard-content{
+  background-color: #fff;
+  margin-top: 40px;
+}
+
+.dashboard-chart{
   background-color: #fff;
 }
 
@@ -100,19 +105,33 @@ body{
 */
 .page-content-header {
   font-family: 'Raleway', sans-serif;
-  text-align: left;
-  background-color: #f4f4f4;
+  text-align: right;
+  background-color: #2980b9;
   padding: 20px 0 10px 0;
   border-bottom: 1px solid #ccc;
 }
 
+.logo-header img{
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  font-weight: 200;
+  text-align: right;
+  padding-right: 10px;
+}
+
 .title-header{
   font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  color: #333;
-  margin-top: 10px;
-  text-align: center;
+  font-size: 12px;
+  font-weight: 200;
+  color: #fff;
+  text-align: left;
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+
+.title-header .am{
+  margin-bottom: 5px;
+
 }
 
 .page-content-info {
@@ -148,33 +167,58 @@ body{
   padding: 10px 0;
 }
 
-.page-ta, .page-pa {
+.page-ta{
   font-family: 'Raleway', sans-serif;
   text-align: center;
   padding: 10px 0;
   color: #fff;
+  background-color: #00a65a;
 }
 
-.page-ta .ta, .page-pa .pa {
+.page-pd {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  padding: 10px 0;
+  color: #fff;
+  background-color: #f39c12;
+}
+
+.page-pa {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  padding: 10px 0;
+  color: #fff;
+  background-color: #0073b7;
+}
+
+.page-pn {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  padding: 10px 0;
+  color: #fff;
+  background-color: #00c0ef;
+}
+
+.page-ta .ta, .page-pa .pa, .page-pd .pd, .page-pn .pn {
   font-family: 'Raleway', sans-serif;
   font-size: 16px;
   font-weight: bold;
-  border-bottom: 1px solid #fff;
   padding: 5px 0;
 }
 
-.page-ta .ta-nominal, .page-pa .pa-nominal{
+.page-ta .ta-nominal, .page-pa .pa-nominal, .page-pd .pd-nominal, .page-pn .pn-nominal{
   font-family: 'Raleway', sans-serif;
   font-size: 14px;
   font-weight: 200;
   padding: 5px 0;
 }
 
+
 .page-content-warning {
   font-family: 'Raleway', sans-serif;
   text-align: left;
   padding: 10px;
-  background: #404040;
+  background: #116399;
 }
 
 .page-content-warning .info-warning{ 
@@ -201,7 +245,7 @@ body{
 }
 
 .icon-background {
-    color: #404040;
+    color: #116399;
 }
 
 #nav-page {
@@ -561,7 +605,7 @@ a.log-a {
     align-items: stretch;
     -webkit-flex-wrap: nowrap;
     flex-wrap: nowrap;
-    background: bottom no-repeat #404040;
+    background: bottom no-repeat #116399;
     color: #ffffff;
     font-weight: 400;
     width: 100%;
@@ -610,10 +654,10 @@ a.log-a {
     text-align: left;
     color: #666;
     text-shadow: 1px 1px 1px #fff;
-    border-top: solid 1px #404040;
+    border-top: solid 1px #116399;
 }
 .content-table tbody td {
-    border: solid 1px #404040;
+    border: solid 1px #116399;
     padding: 5px;
 }
 .content-table-highlight tbody tr:hover {
@@ -789,7 +833,7 @@ a.log-a {
 .box-list{
 
   font-family: 'Raleway', sans-serif;
-  width: 90%; 
+  width: 99%; 
   -webkit-box-shadow: 1px 1px 10px 1px #6E6E6E;
   box-shadow: 1px 1px 10px 1px #d0d0d0;
   -webkit-border-radius: 10px 10px 10px 10px;
@@ -917,7 +961,7 @@ a.log-a {
 */
 
 .buttom-position {
-   background-color: #404040;
+   background-color: #116399;
    margin-top: 20px;
    bottom:0;
    left:0;
