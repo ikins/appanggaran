@@ -78,38 +78,183 @@ appang.controller('getCurrentInfoWeek', ['$scope', '$http','ipCookie', function(
 
 appang.controller('PagePin', ['$scope', '$http','ipCookie', 'md5', function($scope, $http, ipCookie, md5) {
 
-  $scope.pin = function(){
+    //var pin
+    $scope.pin_satu = window.localStorage.getItem("pin_1");
+    $scope.pin_dua = window.localStorage.getItem("pin_2");
+    $scope.pin_tiga = window.localStorage.getItem("pin_3");
+    $scope.pin_empat = window.localStorage.getItem("pin_4");
+    $scope.pin_lima = window.localStorage.getItem("pin_5");
+    $scope.pin_enam = window.localStorage.getItem("pin_6");
 
+    var pin_satu = $scope.pin_satu;
+    var pin_dua = $scope.pin_dua;
+    var pin_tiga = $scope.pin_tiga;
+    var pin_empat = $scope.pin_empat;
+    var pin_lima = $scope.pin_lima;
+    var pin_enam = $scope.pin_enam;
 
-    function pin_action() {
+    //show simbol
+    if(pin_satu == undefined){
+      $scope.ShowSatu_0    = true;
+      $scope.ShowSatu_1    = false;
+    }else{
+      $scope.ShowSatu_0    = false;
+      $scope.ShowSatu_1    = true;
+    }
+    //
 
-      var user_pin = $scope.user_pin;
+    if(pin_dua == undefined){
+      $scope.ShowDua_0    = true;
+      $scope.ShowDua_1    = false;
+    }else{
+      $scope.ShowDua_0    = false;
+      $scope.ShowDua_1    = true;
+    } 
 
-          //example
-          if(user_pin != '' || user_pin != null){
-            window.localStorage.setItem("user_pin", user_pin);
-            fn.load('dashboard.html');
-          }else{
+    if(pin_tiga == undefined){
+      $scope.ShowTiga_0    = true;
+      $scope.ShowTiga_1    = false;
+    }else{
+      $scope.ShowTiga_0    = false;
+      $scope.ShowTiga_1    = true;
+    } 
 
-            ons.notification.alert({
-                messageHTML: 'Email dan password yang anda kirimkan salah.',
-                title: 'Notifikasi',
-                buttonLabel: 'OK',
-                animation: 'default',
-                callback: function() {
-                  // Alert button is closed!
-                }
-            });
-            return false;
-
-          }
-
+    if(pin_empat == undefined){
+      $scope.ShowEmpat_0    = true;
+      $scope.ShowEmpat_1    = false;
+    }else{
+      $scope.ShowEmpat_0    = false;
+      $scope.ShowEmpat_1    = true;
     }
 
+    if(pin_lima == undefined){
+      $scope.ShowLima_0    = true;
+      $scope.ShowLima_1    = false;
+    }else{
+      $scope.ShowLima_0    = false;
+      $scope.ShowLima_1    = true;
+    }
 
-    if ( $scope.user_pin == undefined ) {
+    if(pin_enam == undefined){
+      $scope.ShowEnam_0    = true;
+      $scope.ShowEnam_1    = false;
+    }else{
+      $scope.ShowEnam_0    = false;
+      $scope.ShowEnam_1    = true;
+    }
+    
+  $scope.pin = function(n){
+
+  //alert(n);
+
+  if((n != "") || (n == 0)) {
+
+    var pin_satu = $scope.pin_satu;
+    var pin_dua = $scope.pin_dua;
+    var pin_tiga = $scope.pin_tiga;
+    var pin_empat = $scope.pin_empat;
+    var pin_lima = $scope.pin_lima;
+    var pin_enam = $scope.pin_enam;
+
+    //Insert Pin 1
+    if(pin_satu == undefined){
+
+      window.localStorage.setItem("pin_1", n);
+      pin_1 = window.localStorage.getItem("pin_1");
+
+      //alert("Pin 1 "+pin_1);
+
+      $scope.pin_satu = pin_1;
+
+      $scope.ShowSatu_0    = false;
+      $scope.ShowSatu_1    = true;
+
+    // Insert Pin 2
+    }else if((pin_satu != undefined) && (pin_dua == undefined)){
+
+      window.localStorage.setItem("pin_2", n);
+      pin_2 = window.localStorage.getItem("pin_2");
+
+      $scope.pin_dua = pin_2;
+
+      $scope.ShowDua_0    = false;
+      $scope.ShowDua_1    = true;
+
+    // Insert Pin 3
+    }else if((pin_dua != undefined) && (pin_tiga == undefined)){
+
+      window.localStorage.setItem("pin_3", n);
+      pin_3 = window.localStorage.getItem("pin_3");
+
+      $scope.pin_tiga = pin_3;
+
+      $scope.ShowTiga_0    = false;
+      $scope.ShowTiga_1    = true;
+
+    // Insert Pin 4
+    }else if((pin_tiga != undefined) && (pin_empat == undefined)){
+
+      window.localStorage.setItem("pin_4", n);
+      pin_4 = window.localStorage.getItem("pin_4");
+
+      $scope.pin_empat = pin_4;
+
+      $scope.ShowEmpat_0    = false;
+      $scope.ShowEmpat_1    = true;
+
+    // Insert Pin 5
+    }else if((pin_empat != undefined) && (pin_lima == undefined)){
+
+      window.localStorage.setItem("pin_5", n);
+      pin_5 = window.localStorage.getItem("pin_5");
+
+      $scope.pin_lima = pin_5;
+
+      $scope.ShowLima_0    = false;
+      $scope.ShowLima_1    = true;
+
+    // Insert Pin 6
+    }else if((pin_lima != undefined) && (pin_enam == undefined)){
+
+      window.localStorage.setItem("pin_6", n);
+      pin_6 = window.localStorage.getItem("pin_6");
+
+      $scope.pin_enam = pin_6;
+
+      $scope.ShowEnam_0    = false;
+      $scope.ShowEnam_1    = true;
+
+      //----------------------------------------------
+
+      var satu  = $scope.pin_satu;
+      var dua   = $scope.pin_dua;
+      var tiga  = $scope.pin_tiga;
+      var empat = $scope.pin_empat;
+      var lima  = $scope.pin_lima;
+      var enam  = $scope.pin_enam;
+
+
+      var all_pin = satu + dua + tiga + empat + lima + enam;
+      var real_pin = "123456";
+
+
+      if( all_pin == real_pin){
+        //alert('dashboard');
+
+        window.localStorage.setItem("user_pin", all_pin);
+        fn.load('dashboard.html');
+
+        //remove pin
+        window.localStorage.removeItem("pin_1");
+        window.localStorage.removeItem("pin_2");
+        window.localStorage.removeItem("pin_3");
+        window.localStorage.removeItem("pin_4");
+        window.localStorage.removeItem("pin_5");
+        window.localStorage.removeItem("pin_6");
+
+      }else{
                 ons.notification.alert({
-                  messageHTML: 'Pin Harus Dimasukan',
+                  messageHTML: 'Pin Invalid',
                   title: 'Notifikasi',
                   buttonLabel: 'OK',
                   animation: 'default', // or 'none'
@@ -118,14 +263,44 @@ appang.controller('PagePin', ['$scope', '$http','ipCookie', 'md5', function($sco
                     // Alert button is closed!
                   }
                 });
-                
-                return false;
-            }
-
-    pin_action();
+      }
+    }
+  }
 
   }
 
+
+  $scope.r_pin = function(){
+
+    var pin_1 = $scope.pin_satu;
+    var pin_2 = $scope.pin_dua;
+    var pin_3 = $scope.pin_tiga;
+    var pin_4 = $scope.pin_empat;
+    var pin_5 = $scope.pin_lima;
+    var pin_6 = $scope.pin_enam;
+
+    if(pin_6 != undefined){
+      window.localStorage.removeItem("pin_6");
+      fn.load('pin-page.html');
+    }else if((pin_6 == undefined) && (pin_5 != undefined)){
+      window.localStorage.removeItem("pin_5");
+      fn.load('pin-page.html');
+    }else if((pin_5 == undefined) && (pin_4 != undefined)){
+      window.localStorage.removeItem("pin_4");
+      fn.load('pin-page.html');
+    }else if((pin_4 == undefined) && (pin_3 != undefined)){
+      window.localStorage.removeItem("pin_3");
+      fn.load('pin-page.html');
+    }else if((pin_3 == undefined) && (pin_2 != undefined)){
+      window.localStorage.removeItem("pin_2");
+      fn.load('pin-page.html');
+    }else if((pin_2 == undefined) && (pin_1 != undefined)){
+      window.localStorage.removeItem("pin_1");
+      fn.load('pin-page.html');
+    } 
+
+    
+  } 
 
   //number only
 
@@ -355,7 +530,7 @@ appang.controller('PagePenyerapanPerjenisAnggaran', ['$scope', '$http', function
             },
         colors: ['#06693c','#f47a27','#4284c1'],
             title: {
-                text: "Penyerapan Perjenis Anggaran <br>"+year_current,
+                text: "Tahun Anggaran <br>"+year_current,
           style: { color:'#333' }
             },
             subtitle: 
@@ -732,6 +907,14 @@ appang.controller('PagePenyerapanAnggaran5TahunTerakhir', ['$scope', '$http', fu
     $scope.chartConfig = chartConfig;
     $('#5TahunChart').highcharts(chartConfig);
 
+
+}]);
+
+appang.controller('PagePenyerapanKegiatanPrioritas', ['$scope', '$http', function($scope, $http) {
+
+}]);
+
+appang.controller('PagePerkembanganPengadaanAlutsista', ['$scope', '$http', function($scope, $http) {
 
 }]);
 

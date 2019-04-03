@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Apr 01 13:56:53 ICT 2019
+#Wed Apr 03 15:54:34 ICT 2019
 210.set=ASSET
 2.path=www/lib/onsen/css-components-src/src/components/search-input.css
 14.set=ASSET
@@ -305,6 +305,7 @@
 137.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\release
 107.path=www/lib/onsen/css-components-src/src/components/range.css
 12.set=ASSET
+266.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\release
 189.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\release
 112.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\release
 236.path=www/lib/onsen/esm/elements/ons-alert-dialog/index.js
@@ -411,7 +412,7 @@
 126.set=ASSET
 140.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\release
 97.baseType=DIRECTORY
-264.path=www/index.html
+264.path=www/img/simona.png
 187.path=www/lib/onsen/esm/elements/ons-page.js
 110.path=www/lib/onsen/esm/elements/ons-toast/fall-animator.js
 162.path=www/lib/onsen/css-components-src/previewer-src/util.js
@@ -499,7 +500,7 @@
 136.path=www/lib/onsen/esm/ons/internal/toast-queue.js
 136.set=ASSET
 141.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\release
-265.path=www/lib/onsen/js/angular-onsenui.min.js
+265.path=www/index.html
 188.path=www/lib/onsen/esm/elements/ons-checkbox.js
 149.baseType=DIRECTORY
 111.path=www/lib/onsen/esm/elements/ons-icon.js
@@ -592,6 +593,7 @@
 96.baseType=DIRECTORY
 137.path=www/lib/onsen/js/onsenui.js
 142.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\release
+266.path=www/lib/onsen/js/angular-onsenui.min.js
 189.path=www/lib/onsen/css-components-src/previewer-src/components/notfound-page.js
 112.path=www/js/index.js
 241.path=www/lib/onsen/css/material-design-iconic-font/fonts/Material-Design-Iconic-Font.woff
@@ -599,6 +601,7 @@
 0.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\release
 107.set=ASSET
 110.baseType=DIRECTORY
+266.baseType=DIRECTORY
 191.path=www/lib/onsen/esm/ons/orientation.js
 91.baseType=DIRECTORY
 153.set=ASSET
@@ -622,6 +625,7 @@
 102.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\release
 126.baseType=DIRECTORY
 160.set=ASSET
+266.set=ASSET
 149.path=www/lib/onsen/css-components-src/src/components/card.css
 231.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\release
 154.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\release
@@ -634,7 +638,7 @@
 151.path=www/lib/onsen/css-components-src/src/components/modal.css
 121.set=ASSET
 227.set=ASSET
-count=266
+count=267
 121.baseType=DIRECTORY
 27.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\release
 77.set=ASSET

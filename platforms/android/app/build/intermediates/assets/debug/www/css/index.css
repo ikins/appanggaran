@@ -19,7 +19,7 @@ body{
   background-color: #ffffff;
 }
 #landing-contentpage .page__background, #login-contentpage .page__background {
-  background-color: #116399;
+  background-color: #2980b9;
 }
 
 .dashboard-content{
@@ -29,6 +29,11 @@ body{
 
 .dashboard-chart{
   background-color: #fff;
+}
+
+.chart-margin{
+  margin: 0 auto; 
+  margin: 0 10px;
 }
 
 .dashboard-total-anggaran{
@@ -81,7 +86,7 @@ body{
 
 .logo{
 
-  margin-top: 170px;
+  margin-top: 320px;
   text-align: center;
 }
 
@@ -95,9 +100,131 @@ body{
 
   text-align: center;
   font-family: 'Raleway', sans-serif;
-  font-size: 12px;
+  font-size: 18px;
+  font-weight: 200;
   color: #fff;
   margin-top: 20px;
+  text-transform: uppercase;
+}
+
+.logo-img{
+  margin-top: 321px;
+  text-align: center;
+}
+
+.logo-img-pin{
+  margin-top: 130px;
+  text-align: center;
+}
+
+.foot-logo{
+  position: absolute;
+  margin: 0 auto;
+  bottom: 20px;
+}
+
+.foot-logo img{
+  width: 100px;
+}
+
+.foot-logo p{
+
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px;
+  color: #fff;
+  margin-top: 14px;
+  text-transform: uppercase;
+}
+
+/** Pin 
+*-----------------------------------
+*/
+.simbol_pin{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.simbol_pin_0, .simbol_pin_1{
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  color: #fff;
+  margin-right: 40px;
+}
+
+.simbol_pin_0 i, .simbol_pin_1 i{
+  font-size: 20px;
+  color: #fff;
+}
+
+.pin_left{
+ margin-left: 50px;
+}
+
+.button-pin{
+    box-sizing: border-box;
+    background: #2980b9;
+    font-family: 'Raleway', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    text-transform: uppercase;
+    user-select: none;
+    padding: 20px 40px;
+    margin: 10px;
+    font-size: 25px;
+    color: #fff;
+    border-radius: 3px;
+
+}
+
+.button--material {
+    background: #2980b9;
+    user-select: none;
+    border-radius: 3px;
+    box-shadow: none;
+    font-family: Roboto,Noto,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 36px;
+    font-size: 40px;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    color: #fff;
+    font-weight: 500;
+    opacity: 1;
+}
+
+.display-pin{
+  width:500px; 
+  text-align: center; 
+  margin:0 auto;
+}
+
+.title_lupa_pin{
+  font-family: 'Raleway', sans-serif;
+  margin-top: 40px; 
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400px;
+  color: #fff;
+}
+
+
+/** Form Aktivasi 
+*-----------------------------------
+*/
+
+.text-input-act {
+   border: 1px solid #ccc;
+   font-size: 20px;
+   height: 34px;
+   width: 300px;
+   padding-left: 5px;
+   font-family: 'Raleway', sans-serif;
+   border-radius: 3px;
 }
 
 /** Content 
@@ -167,6 +294,28 @@ body{
   padding: 10px 0;
 }
 
+.page-chart-dashboard .title-chart{
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  background-color: #2980b9;
+  margin: 0 auto; 
+  margin: 0 10px;
+  padding: 10px 0;
+}
+
+.title-table{
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  background-color: #2980b9;
+  padding: 10px 0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
 .page-ta{
   font-family: 'Raleway', sans-serif;
   text-align: center;
@@ -180,33 +329,17 @@ body{
   text-align: center;
   padding: 10px 0;
   color: #fff;
-  background-color: #f39c12;
+  background-color: #4ab007;
 }
 
-.page-pa {
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-  padding: 10px 0;
-  color: #fff;
-  background-color: #0073b7;
-}
-
-.page-pn {
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-  padding: 10px 0;
-  color: #fff;
-  background-color: #00c0ef;
-}
-
-.page-ta .ta, .page-pa .pa, .page-pd .pd, .page-pn .pn {
+.page-ta .ta, .page-pd .pd {
   font-family: 'Raleway', sans-serif;
   font-size: 16px;
   font-weight: bold;
   padding: 5px 0;
 }
 
-.page-ta .ta-nominal, .page-pa .pa-nominal, .page-pd .pd-nominal, .page-pn .pn-nominal{
+.page-ta .ta-nominal, .page-pd .pd-nominal{
   font-family: 'Raleway', sans-serif;
   font-size: 14px;
   font-weight: 200;
@@ -218,7 +351,7 @@ body{
   font-family: 'Raleway', sans-serif;
   text-align: left;
   padding: 10px;
-  background: #116399;
+  background: #2980b9;
 }
 
 .page-content-warning .info-warning{ 
@@ -245,7 +378,7 @@ body{
 }
 
 .icon-background {
-    color: #116399;
+    color: #2980b9;
 }
 
 #nav-page {
@@ -458,10 +591,21 @@ a.log-a {
 */
 .title_login{
   font-family: 'Raleway', sans-serif;
-  margin-top: 170px; 
+  margin-top: 50px; 
   padding-left:10px; 
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 400px;
+  color: #fff;
+}
+
+.title_login_pin{
+  font-family: 'Raleway', sans-serif;
+  margin-top: 50px;
+  margin-bottom: 40px; 
+  padding-left:10px; 
+  text-align: center;
+  font-size: 18px;
   font-weight: 400px;
   color: #fff;
 }
@@ -503,6 +647,15 @@ a.log-a {
    padding-left: 5px;
 }
 
+.form-login{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.form-login .input-login{
+  margin-bottom: 5px;
+}
+
 /** Button 
 *-----------------------------------
 */
@@ -527,6 +680,41 @@ a.log-a {
     position: absolute;
     top: 5px;
     right: 10px;
+}
+
+.button-landing { 
+    width: 220px;
+    box-sizing: border-box;
+    margin: 0;
+    background: #02304f;
+    font-family: 'Raleway', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 200;
+    text-transform: uppercase;
+    user-select: none;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 15px;
+    color: #fff;
+    border-radius: 3px;
+}
+
+
+.button-aktivasi {
+    width: 308px; 
+    box-sizing: border-box;
+    margin: 0;
+    background: #02304f;
+    font-family: 'Raleway', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 200;
+    text-transform: uppercase;
+    user-select: none;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 15px;
+    color: #fff;
+    border-radius: 3px;
 }
 
 /** Dialog 
@@ -605,7 +793,7 @@ a.log-a {
     align-items: stretch;
     -webkit-flex-wrap: nowrap;
     flex-wrap: nowrap;
-    background: bottom no-repeat #116399;
+    background: bottom no-repeat #186da5;
     color: #ffffff;
     font-weight: 400;
     width: 100%;
@@ -639,6 +827,10 @@ a.log-a {
     height: 100%;
 }
 
+.toolbar-logo img{
+  margin-top: 10px;
+}
+
 /** Table 
 *-----------------------------------
 */
@@ -654,10 +846,10 @@ a.log-a {
     text-align: left;
     color: #666;
     text-shadow: 1px 1px 1px #fff;
-    border-top: solid 1px #116399;
+    border-top: solid 1px #2980b9;
 }
 .content-table tbody td {
-    border: solid 1px #116399;
+    border: solid 1px #2980b9;
     padding: 5px;
 }
 .content-table-highlight tbody tr:hover {
@@ -961,7 +1153,7 @@ a.log-a {
 */
 
 .buttom-position {
-   background-color: #116399;
+   background-color: #2980b9;
    margin-top: 20px;
    bottom:0;
    left:0;

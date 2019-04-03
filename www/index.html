@@ -70,7 +70,7 @@
             <!-- Logo -->
             <ons-col class="logo">
 
-              <img src="img/logo.png" width="100" class="img_center">
+              <img src="img/simona.png" width="300" class="img_center">
               <p>
                 Aplikasi Monitoring Pelaksanaan Anggaran<br>
                 Kementerian Pertahanan Republik Indonesia
@@ -78,8 +78,20 @@
 
             <!-- Link Login -->
               <ons-col style="margin-top: 30px;">
-                <a href="#" class="log-a" onclick="fn.load('login.html')">Instal</a>
+                <a href="#" class="log-a" onclick="fn.load('login.html')">
+                  <ons-button class="button-landing">Aktifkan</ons-button>
+                </a>
               </ons-col>
+
+            </ons-col>
+
+            <ons-col class="foot-logo">
+
+              <img src="img/logo.png" class="img_center">
+              <p>
+                Kementerian Pertahanan<br>
+                Republik Indonesia
+              </p>
 
             </ons-col>
             
@@ -89,26 +101,37 @@
         <!-- Login / Instal-->
         <template id="login.html">
           <ons-page ng-controller="PageController" id="login-contentpage">
+            <p class="logo-img">
+              <img src="img/simona.png" width="300" class="img_center">
+            </p>
             <p class="title_login">
-              Instal
+              AKTIVASI PENGGUNA
             </p>
 
-            <div style="text-align: center; margin-top: 30px">
-                <p>
-                  <ons-input type="email" id="email" modifier="underbar" placeholder="Email" float ng-model="email"></ons-input>
-                </p>
-                <p>
-                  <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float ng-model="password"></ons-input>
-                </p>
+            <div class="form-login">
+                <div class="input-login">
+                  <input type="email" class="text-input-act" id="email" modifier="underbar" placeholder="Email" float ng-model="email">
+                </div>
+                <div class="input-login">
+                  <input id="password" class="text-input-act" modifier="underbar" type="password" placeholder="Password" float ng-model="password">
+                </div>
                 <ons-row>
-                    <ons-col style="margin-top: 30px;">
-                      <ons-button ng-click="login()" class="button-signin">Instal</ons-button>
+                    <ons-col>
+                      <ons-button ng-click="login()" width="100%" class="button-aktivasi">Aktifkan</ons-button>
                     </ons-col>
                 </ons-row>
 
             </div>
 
-            
+            <ons-col class="foot-logo">
+
+              <img src="img/logo.png" class="img_center">
+              <p>
+                Kementerian Pertahanan<br>
+                Republik Indonesia
+              </p>
+
+            </ons-col>
 
           </ons-page>
         </template>
@@ -117,23 +140,102 @@
         <!-- Pin Page -->
         <template id="pin-page.html">
           <ons-page ng-controller="PagePin" id="login-contentpage">
-            <p class="title_login">
-              Input PIN
+            <p class="logo-img-pin">
+              <img src="img/simona.png" width="300" class="img_center">
+            </p>
+            <p class="title_login_pin">
+              Masukan Security Code Anda
             </p>
 
-            <div style="text-align: center; margin-top: 30px">
-                <p>
-                  <ons-input type="number" id="user_pin" modifier="underbar" float ng-model="user_pin"></ons-input>
-                </p>
+            <div class="simbol_pin">
+            <ons-row>
+                  
+                    <ons-col>
+                      <span class="simbol_pin_0 pin_left" ng-show="ShowSatu_0"><i class="fa fa-circle"></i></span>
+                      <span class="simbol_pin_1 pin_left" ng-show="ShowSatu_1"><i class="fa fa-circle-o"></i></span>
+                      <span class="simbol_pin_0" ng-show="ShowDua_0"><i class="fa fa-circle"></i></span>
+                      <span class="simbol_pin_1" ng-show="ShowDua_1"><i class="fa fa-circle-o"></i></span>
+                      <span class="simbol_pin_0" ng-show="ShowTiga_0"><i class="fa fa-circle"></i></span>
+                      <span class="simbol_pin_1" ng-show="ShowTiga_1"><i class="fa fa-circle-o"></i></span>
+                      <span class="simbol_pin_0" ng-show="ShowEmpat_0"><i class="fa fa-circle"></i></span>
+                      <span class="simbol_pin_1" ng-show="ShowEmpat_1"><i class="fa fa-circle-o"></i></span>
+                      <span class="simbol_pin_0" ng-show="ShowLima_0"><i class="fa fa-circle"></i></span>
+                      <span class="simbol_pin_1" ng-show="ShowLima_1"><i class="fa fa-circle-o"></i></span>
+                      <span class="simbol_pin_0" ng-show="ShowEnam_0"><i class="fa fa-circle"></i></span>
+                      <span class="simbol_pin_1" ng-show="ShowEnam_1"><i class="fa fa-circle-o"></i></span>
+                    </ons-col>
+                  
+                </ons-row>
+            </div>
+            <p class="title_lupa_pin">
+              Lupa Security Code?
+            </p>
+            <div class="display-pin">
+              
+                <input type="hidden" ng-model="pin_satu">
+                <input type="hidden" ng-model="pin_dua">
+                <input type="hidden" ng-model="pin_tiga">
+                <input type="hidden" ng-model="pin_empat">
+                <input type="hidden" ng-model="pin_lima">
+                <input type="hidden" ng-model="pin_enam">
+
                 <ons-row>
-                    <ons-col style="margin-top: 30px;">
-                      <ons-button ng-click="pin()" class="button-signin">Masuk</ons-button>
+                    <ons-col>
+                      <ons-button ng-click="pin(1)" class="button-pin">1</ons-button>
+                    </ons-col>
+                    <ons-col>
+                      <ons-button ng-click="pin(2)" class="button-pin">2</ons-button>
+                    </ons-col>
+                    <ons-col>
+                      <ons-button ng-click="pin(3)" class="button-pin">3</ons-button>
+                    </ons-col>
+                </ons-row>
+
+                <ons-row>
+                    <ons-col>
+                      <ons-button ng-click="pin(4)" class="button-pin">4</ons-button>
+                    </ons-col>
+                    <ons-col>
+                      <ons-button ng-click="pin(5)" class="button-pin">5</ons-button>
+                    </ons-col>
+                    <ons-col>
+                      <ons-button ng-click="pin(6)" class="button-pin">6</ons-button>
+                    </ons-col>
+                </ons-row>
+
+                <ons-row>
+                    <ons-col>
+                      <ons-button ng-click="pin(7)" class="button-pin">7</ons-button>
+                    </ons-col>
+                    <ons-col>
+                      <ons-button ng-click="pin(8)" class="button-pin">8</ons-button>
+                    </ons-col>
+                    <ons-col>
+                      <ons-button ng-click="pin(9)" class="button-pin">9</ons-button>
+                    </ons-col>
+                </ons-row>
+                <ons-row>
+                    <ons-col>                  
+                    </ons-col>
+                    <ons-col>
+                      <ons-button ng-click="pin(0)" class="button-pin">0</ons-button>
+                    </ons-col>
+                    <ons-col>
+                      <ons-button ng-click="r_pin()" class="button-pin"><i class="fa fa-close"></i></ons-button>
                     </ons-col>
                 </ons-row>
 
             </div>
 
-            
+            <ons-col class="foot-logo">
+
+              <img src="img/logo.png" class="img_center">
+              <p>
+                Kementerian Pertahanan<br>
+                Republik Indonesia
+              </p>
+
+            </ons-col>
 
           </ons-page>
         </template>
@@ -148,8 +250,8 @@
                   <ons-icon icon="md-menu"></ons-icon>
                 </ons-toolbar-button> -->
               </div>
-              <div class="center toolbar-head-title">
-                Dashboard
+              <div class="center toolbar-head-title toolbar-logo">
+                <img src="img/simona.png" width="150" class="img_center">
               </div>
               <div class="right">
                 <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
@@ -158,7 +260,7 @@
 
 
             <!-- Content -->
-            <ons-row class="page-content-header">
+            <!-- <ons-row class="page-content-header">
                 <ons-col width="30%">
                     <div class="logo-header">
                         <img ng-src="img/logo.png" width="60">
@@ -170,28 +272,36 @@
                         <div>Kementerian Pertahanan Republik Indonesia</div>
                     </div>
                 </ons-col>
-            </ons-row>
+            </ons-row> -->
             <div class="dashboard-total-anggaran">
                 <ons-row>
                     <ons-col class="page-ta">
                       <div class="ta">Total Anggaran</div>
                       <div class="ta-nominal">Rp. 107.7 Trilliun</div>
                     </ons-col>
-                    <ons-col class="page-pd">
-                      <div class="pd">Penerimaan Anggaran</div>
-                      <div class="pd-nominal">Rp. 15.7 Trilliun</div>
+                    <ons-col class="page-ta">
+                      <div class="ta">Penyerapan Anggaran</div>
+                      <div class="ta-nominal">Rp. 48.5 Trilliun</div>
+                    </ons-col>
+                    <ons-col class="page-ta">
+                      <div class="ta">Persentase</div>
+                      <div class="ta-nominal">69.0%</div>
                     </ons-col>
                 </ons-row>
             </div>
             <div class="dashboard-penyerapan-anggaran">
                 <ons-row>
-                    <ons-col class="page-pa">
-                      <div class="pa">Penyerapan Anggaran</div>
-                      <div class="pa-nominal">Rp. 48.5 Trilliun</div>
+                    <ons-col class="page-pd">
+                      <div class="pd">Penerimaan Anggaran</div>
+                      <div class="pd-nominal">Rp. 15.7 Trilliun</div>
                     </ons-col>
-                    <ons-col class="page-pn">
-                      <div class="pn">Pendapatan Negara</div>
-                      <div class="pn-nominal">Rp. 10.7 Trilliun</div>
+                    <ons-col class="page-pd">
+                      <div class="pd">Pendapatan Negara</div>
+                      <div class="pd-nominal">Rp. 10.7 Trilliun</div>
+                    </ons-col>
+                    <ons-col class="page-pd">
+                      <div class="pd">Persentase</div>
+                      <div class="pd-nominal">31.0%</div>
                     </ons-col>
                 </ons-row>
             </div>
@@ -310,7 +420,7 @@
             <ons-popover id="popover-dialog" cancelable direction="down" cover-target target="#info-button">
               <ons-list id="popover-list">
                 <ons-list-item class="more-options" onclick="fn.load('dashboard.html')" tappable>
-                  <div class="center">Home</div>
+                  <div class="center">Setting</div>
                 </ons-list-item>
                 <ons-list-item class="more-options" ng-click="logout()" tappable>
                   <div class="center">Logout</div>
@@ -345,8 +455,8 @@
               <div class="left">
                 <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
               </div>
-              <div class="center toolbar-head-title">
-                Penyerapan Perjenis Anggaran
+              <div class="center toolbar-head-title toolbar-logo">
+                <img src="img/simona.png" width="150" class="img_center">
               </div>
               <div class="right">
                 <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
@@ -356,18 +466,19 @@
 
             
             <!-- Content -->
-            <ons-row class="page-content">
+            <!-- <ons-row class="page-content">
                 <div class="search-bar">
                   <i class="icon fa fa-search"></i>
                   <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
                 </div>
-            </ons-row>
+            </ons-row> -->
 
             <!-- Content -->
             <div class="dashboard-chart">
                 <ons-row class="page-chart-dashboard">
                     <ons-col>
-                      <div id="ppaChart" style="margin: 0 auto"></div>
+                      <div class="title-chart">Penyerapan Anggaran Perjenis Anggaran</div>
+                      <div id="ppaChart" class="chart-margin"></div>
                     </ons-col>
                 </ons-row>
             </div>
@@ -413,8 +524,8 @@
               <div class="left">
                 <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
               </div>
-              <div class="center toolbar-head-title">
-                Pendapatan Negara
+              <div class="center toolbar-head-title toolbar-logo">
+                <img src="img/simona.png" width="150" class="img_center">
               </div>
               <div class="right">
                 <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
@@ -424,18 +535,19 @@
 
             
             <!-- Content -->
-            <ons-row class="page-content">
+            <!-- <ons-row class="page-content">
                 <div class="search-bar">
                   <i class="icon fa fa-search"></i>
                   <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
                 </div>
-            </ons-row>
+            </ons-row> -->
 
             <!-- Content -->
             <div class="dashboard-chart">
                 <ons-row class="page-chart-dashboard">
                     <ons-col>
-                      <div id="ppaChart" style="margin: 0 auto"></div>
+                      <div class="title-chart">Pendapatan Negara</div>
+                      <div id="ppaChart" class="chart-margin"></div>
                     </ons-col>
                 </ons-row>
             </div>
@@ -481,8 +593,8 @@
               <div class="left">
                 <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
               </div>
-              <div class="center toolbar-head-title">
-                Penyerapan Anggaran Persatuan Kerja
+              <div class="center toolbar-head-title toolbar-logo">
+                <img src="img/simona.png" width="150" class="img_center">
               </div>
               <div class="right">
                 <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
@@ -492,18 +604,19 @@
 
             
             <!-- Content -->
-            <ons-row class="page-content">
+            <!-- <ons-row class="page-content">
                 <div class="search-bar">
                   <i class="icon fa fa-search"></i>
                   <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
                 </div>
-            </ons-row>
+            </ons-row> -->
 
             <!-- Content -->
             <div class="dashboard-chart">
                 <ons-row class="page-chart-dashboard">
                     <ons-col>
-                      <div id="ppaChart" style="margin: 0 auto"></div>
+                      <div class="title-chart">Penyerapan Anggaran Persatuan Kerja</div>
+                      <div id="ppaChart" class="chart-margin"></div>
                     </ons-col>
                 </ons-row>
             </div>
@@ -549,8 +662,8 @@
               <div class="left">
                 <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
               </div>
-              <div class="center toolbar-head-title">
-                Penyerapan Anggaran Perbulan
+              <div class="center toolbar-head-title toolbar-logo">
+                <img src="img/simona.png" width="150" class="img_center">
               </div>
               <div class="right">
                 <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
@@ -560,18 +673,19 @@
 
             
             <!-- Content -->
-            <ons-row class="page-content">
+            <!-- <ons-row class="page-content">
                 <div class="search-bar">
                   <i class="icon fa fa-search"></i>
                   <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
                 </div>
-            </ons-row>
+            </ons-row> -->
 
             <!-- Content -->
             <div class="dashboard-chart">
                 <ons-row class="page-chart-dashboard">
                     <ons-col>
-                      <div id="papbChart" style="margin: 0 auto"></div>
+                      <div class="title-chart">Penyerapan Anggaran Perbulan</div>
+                      <div id="papbChart" class="chart-margin"></div>
                     </ons-col>
                 </ons-row>
             </div>
@@ -617,8 +731,8 @@
               <div class="left">
                 <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
               </div>
-              <div class="center toolbar-head-title">
-                10 Satuan Kerja
+              <div class="center toolbar-head-title toolbar-logo">
+                <img src="img/simona.png" width="150" class="img_center">
               </div>
               <div class="right">
                 <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
@@ -628,18 +742,19 @@
 
             
             <!-- Content -->
-            <ons-row class="page-content">
+            <!-- <ons-row class="page-content">
                 <div class="search-bar">
                   <i class="icon fa fa-search"></i>
                   <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
                 </div>
-            </ons-row>
+            </ons-row> -->
 
             <!-- Content -->
             <div class="dashboard-chart">
                 <ons-row class="page-chart-dashboard">
                     <ons-col>
-                      <div id="10SatuanChart" style="margin: 0 auto"></div>
+                      <div class="title-chart">10 Satuan Kerja</div>
+                      <div id="10SatuanChart" class="chart-margin"></div>
                     </ons-col>
                 </ons-row>
             </div>
@@ -685,8 +800,8 @@
               <div class="left">
                 <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
               </div>
-              <div class="center toolbar-head-title">
-                Satuan Kerja Terlambat Melaporkan
+              <div class="center toolbar-head-title toolbar-logo">
+                <img src="img/simona.png" width="150" class="img_center">
               </div>
               <div class="right">
                 <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
@@ -695,10 +810,11 @@
 
             <!-- Content -->
             <ons-row class="page-content">
-                <div class="search-bar">
+                <!-- <div class="search-bar">
                   <i class="icon fa fa-search"></i>
                   <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
-                </div>
+                </div> -->
+                <div class="title-table">Satuan Kerja Terlambat Melaporkan</div>
                 <div class="box-list">
                     <div class="title">Satuan Kerja I</div>
                 </div>
@@ -744,8 +860,8 @@
               <div class="left">
                 <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
               </div>
-              <div class="center toolbar-head-title">
-                Penyerapan Anggaran 5 Tahun Terakhir
+              <div class="center toolbar-head-title toolbar-logo">
+                <img src="img/simona.png" width="150" class="img_center">
               </div>
               <div class="right">
                 <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
@@ -755,18 +871,19 @@
 
             
             <!-- Content -->
-            <ons-row class="page-content">
+            <!-- <ons-row class="page-content">
                 <div class="search-bar">
                   <i class="icon fa fa-search"></i>
                   <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
                 </div>
-            </ons-row>
+            </ons-row> -->
 
             <!-- Content -->
             <div class="dashboard-chart">
                 <ons-row class="page-chart-dashboard">
                     <ons-col>
-                      <div id="5TahunChart" style="margin: 0 auto"></div>
+                      <div class="title-chart">Penyerapan Anggaran 5 Tahun Terakhir</div>
+                      <div id="5TahunChart" class="chart-margin"></div>
                     </ons-col>
                 </ons-row>
             </div>
@@ -813,8 +930,8 @@
               <div class="left">
                 <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
               </div>
-              <div class="center toolbar-head-title">
-                Penyerapan Kegiatan Prioritas
+              <div class="center toolbar-head-title toolbar-logo">
+                <img src="img/simona.png" width="150" class="img_center">
               </div>
               <div class="right">
                 <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
@@ -824,18 +941,19 @@
 
             
             <!-- Content -->
-            <ons-row class="page-content">
+            <!-- <ons-row class="page-content">
                 <div class="search-bar">
                   <i class="icon fa fa-search"></i>
                   <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
                 </div>
-            </ons-row>
+            </ons-row> -->
 
             <!-- Content -->
             <div class="dashboard-chart">
                 <ons-row class="page-chart-dashboard">
                     <ons-col>
-                      <div id="ppaChart" style="margin: 0 auto"></div>
+                      <div class="title-chart">Penyerapan Kegiatan Prioritas</div>
+                      <div id="ppaChart" class="chart-margin"></div>
                     </ons-col>
                 </ons-row>
             </div>
@@ -881,8 +999,8 @@
               <div class="left">
                 <ons-back-button onclick="fn.load('dashboard.html')"></ons-back-button>
               </div>
-              <div class="center toolbar-head-title">
-                Perkembangan Pengadaan Alutsista
+              <div class="center toolbar-head-title toolbar-logo">
+                <img src="img/simona.png" width="150" class="img_center">
               </div>
               <div class="right">
                 <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
@@ -892,18 +1010,19 @@
 
             
             <!-- Content -->
-            <ons-row class="page-content">
+            <!-- <ons-row class="page-content">
                 <div class="search-bar">
                   <i class="icon fa fa-search"></i>
                   <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
                 </div>
-            </ons-row>
+            </ons-row> -->
 
             <!-- Content -->
             <div class="dashboard-chart">
                 <ons-row class="page-chart-dashboard">
                     <ons-col>
-                      <div id="ppaChart" style="margin: 0 auto"></div>
+                      <div class="title-chart">Perkembangan Pengadaan Alutsista</div>
+                      <div id="ppaChart" class="chart-margin"></div>
                     </ons-col>
                 </ons-row>
             </div>
