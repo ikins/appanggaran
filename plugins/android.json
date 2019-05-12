@@ -8,7 +8,7 @@
   },
   "installed_plugins": {
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.anggaran.app"
+      "PACKAGE_NAME": "com.simona.app"
     }
   },
   "dependent_plugins": {}

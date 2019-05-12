@@ -10,7 +10,7 @@
         <meta name="mobile-web-app-capable" content="yes" />
         <meta http-equiv="Pragma" content="no-cache">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <title>App Anggaran</title>
+        <title>Simona</title>
 
         <!-- CSS dependencies -->
         <link rel="stylesheet" href="lib/onsen/css/onsenui.css" />
@@ -85,7 +85,7 @@
 
             </ons-col>
 
-            <ons-col class="foot-logo">
+            <ons-col class="foot-logo-landing">
 
               <img src="img/logo.png" class="img_center">
               <p>
@@ -123,7 +123,7 @@
 
             </div>
 
-            <ons-col class="foot-logo">
+            <ons-col class="foot-logo-login">
 
               <img src="img/logo.png" class="img_center">
               <p>
@@ -227,7 +227,7 @@
 
             </div>
 
-            <ons-col class="foot-logo">
+            <ons-col class="foot-logo-pin">
 
               <img src="img/logo.png" class="img_center">
               <p>
@@ -474,6 +474,22 @@
             </ons-row> -->
 
             <!-- Content -->
+            <div class="dashboard-total-anggaran-detail">
+                <ons-row>
+                    <ons-col class="page-ta">
+                      <div class="ta">Total Anggaran</div>
+                      <div class="ta-nominal">Rp. 107.7 Trilliun</div>
+                    </ons-col>
+                    <ons-col class="page-ta">
+                      <div class="ta">Penyerapan Anggaran</div>
+                      <div class="ta-nominal">Rp. 48.5 Trilliun</div>
+                    </ons-col>
+                    <ons-col class="page-ta">
+                      <div class="ta">Persentase</div>
+                      <div class="ta-nominal">69.0%</div>
+                    </ons-col>
+                </ons-row>
+            </div>
             <div class="dashboard-chart">
                 <ons-row class="page-chart-dashboard">
                     <ons-col>
@@ -482,7 +498,24 @@
                     </ons-col>
                 </ons-row>
             </div>
-            <!-- Table Content -->
+            
+            <div style="margin-top: 30px;">
+              <ons-row class="padding-lr-10">
+                  <ons-col>
+                        <ons-button onclick="fn.load('anggaran-perkotama.html')" class="button-all">Anggaran Perkotama</ons-button>
+                  </ons-col>
+                  <ons-col>
+                        <ons-button onclick="fn.load('penyerapan-anggaran-perkotama.html')" class="button-all">Penyerapan Anggaran Perkotama</ons-button>
+                  </ons-col>
+                  <ons-col>
+                        <ons-button onclick="fn.load('penyerapan-anggaran-5-tahun-terakhir.html')" class="button-all">Anggaran 5 Tahun Terakhir</ons-button>
+                  </ons-col>
+                  <ons-col>
+                        <ons-button onclick="fn.load('penyerapan-anggaran-perbulan.html')" class="button-all">Penyerapan Anggaran Perbulan</ons-button>
+                  </ons-col>
+              </ons-row>
+            </div>
+
 
             
             
@@ -889,6 +922,43 @@
             </div>
             <!-- Table Content -->
 
+            <div class="dashboard-chart padding-lr-10">
+                <ons-row>
+                  <ons-col>
+                    <table class="content-table content-table-highlight content-table-horizontal">
+                      <thead>
+                        <tr>
+                          <th>Tahun</th>
+                          <th>Jumlah Anggaran</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>2019</td>
+                          <td>106.7 T</td>
+                        </tr>
+                        <tr>
+                          <td>2018</td>
+                          <td>107.9 T</td>
+                        </tr>
+                        <tr>
+                          <td>2017</td>
+                          <td>117.2 T</td>
+                        </tr>
+                        <tr>
+                          <td>2016</td>
+                          <td>98.5 T</td>
+                        </tr>
+                        <tr>
+                          <td>2015</td>
+                          <td>101.4 T</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </ons-col>
+                </ons-row>
+            </div>
+
             
             
             <ons-popover id="popover-dialog" cancelable direction="down" cover-target target="#info-button">
@@ -1027,6 +1097,225 @@
                 </ons-row>
             </div>
             <!-- Table Content -->
+
+            
+            
+            <ons-popover id="popover-dialog" cancelable direction="down" cover-target target="#info-button">
+              <ons-list id="popover-list">
+                <ons-list-item class="more-options" onclick="fn.load('dashboard.html')" tappable>
+                  <div class="center">Home</div>
+                </ons-list-item>
+                <ons-list-item class="more-options" ng-click="logout()" tappable>
+                  <div class="center">Logout</div>
+                </ons-list-item>
+              </ons-list>
+            </ons-popover>
+            
+            <script>
+              ons.getScriptPage().onInit = function () {
+
+                var toolbarButton = ons.platform.isAndroid() ? ons.createElement(`<ons-icon icon="md-more-vert"></ons-icon>`) : ons.createElement(`<span><i class="zmdi zmdi-more-vert"></i></span>`);
+                var infoButton = document.getElementById('info-button');
+                infoButton.appendChild(toolbarButton);
+                
+                window.fn.showDialog = function (id) {
+                  var elem = document.getElementById(id);
+                  if (id === 'popover-dialog') {
+                    elem.show(infoButton);
+                  }
+                };
+              
+              };
+            </script>
+
+          </ons-page>
+        </template>
+
+<!-- ======================================================== -->
+<!-- Update 12 Mei 2019 -->
+
+        <!-- Anggaran Perkotama -->
+        <template id="anggaran-perkotama.html">
+          <ons-page ng-controller="PageAnggaranPerkotama" id="contentpage">
+            <ons-toolbar class="toolbar">
+              <div class="left">
+                <ons-back-button onclick="fn.load('penyerapan-perjenis-anggaran.html')"></ons-back-button>
+              </div>
+              <div class="center toolbar-head-title toolbar-logo">
+                <img src="img/simona.png" width="150" class="img_center">
+              </div>
+              <div class="right">
+                <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
+              </div>
+            </ons-toolbar>
+
+
+            
+            <!-- Content -->
+            <!-- <ons-row class="page-content">
+                <div class="search-bar">
+                  <i class="icon fa fa-search"></i>
+                  <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
+                </div>
+            </ons-row> -->
+
+            <!-- Content -->
+            <div class="dashboard-chart">
+                <ons-row class="page-chart-dashboard">
+                    <ons-col>
+                      <div class="title-chart">Anggaran Perkotama</div>
+                      <div id="apChart" class="chart-margin"></div>
+                    </ons-col>
+                </ons-row>
+            </div>
+            <!-- Table Content -->
+            <div class="dashboard-chart padding-lr-10">
+                <ons-row>
+                  <ons-col>
+                    <table class="content-table content-table-highlight content-table-horizontal">
+                      <thead>
+                        <tr>
+                          <th>Kotama</th>
+                          <th>Jumlah Anggaran</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Kementerian Pertahanan</td>
+                          <td>80.129.000.000</td>
+                        </tr>
+                        <tr>
+                          <td>Mabes TNI</td>
+                          <td>57.129.000.000</td>
+                        </tr>
+                        <tr>
+                          <td>TNI AD</td>
+                          <td>47.129.000.000</td>
+                        </tr>
+                        <tr>
+                          <td>TNI AU</td>
+                          <td>18.129.000.000</td>
+                        </tr>
+                        <tr>
+                          <td>TNI AL</td>
+                          <td>14.129.000.000</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </ons-col>
+                </ons-row>
+            </div>
+
+            
+            
+            <ons-popover id="popover-dialog" cancelable direction="down" cover-target target="#info-button">
+              <ons-list id="popover-list">
+                <ons-list-item class="more-options" onclick="fn.load('dashboard.html')" tappable>
+                  <div class="center">Home</div>
+                </ons-list-item>
+                <ons-list-item class="more-options" ng-click="logout()" tappable>
+                  <div class="center">Logout</div>
+                </ons-list-item>
+              </ons-list>
+            </ons-popover>
+            
+            <script>
+              ons.getScriptPage().onInit = function () {
+
+                var toolbarButton = ons.platform.isAndroid() ? ons.createElement(`<ons-icon icon="md-more-vert"></ons-icon>`) : ons.createElement(`<span><i class="zmdi zmdi-more-vert"></i></span>`);
+                var infoButton = document.getElementById('info-button');
+                infoButton.appendChild(toolbarButton);
+                
+                window.fn.showDialog = function (id) {
+                  var elem = document.getElementById(id);
+                  if (id === 'popover-dialog') {
+                    elem.show(infoButton);
+                  }
+                };
+              
+              };
+            </script>
+
+          </ons-page>
+        </template>
+
+        <!-- Penyerapan Anggaran Perkotama -->
+        <template id="penyerapan-anggaran-perkotama.html">
+          <ons-page ng-controller="PagePenyerapanAnggaranPerkotama" id="contentpage">
+            <ons-toolbar class="toolbar">
+              <div class="left">
+                <ons-back-button onclick="fn.load('penyerapan-perjenis-anggaran.html')"></ons-back-button>
+              </div>
+              <div class="center toolbar-head-title toolbar-logo">
+                <img src="img/simona.png" width="150" class="img_center">
+              </div>
+              <div class="right">
+                <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
+              </div>
+            </ons-toolbar>
+
+
+            
+            <!-- Content -->
+            <!-- <ons-row class="page-content">
+                <div class="search-bar">
+                  <i class="icon fa fa-search"></i>
+                  <input class="input-text" type="text" ng-model="searchText" placeholder="Search ...">
+                </div>
+            </ons-row> -->
+
+            <!-- Content -->
+            <div class="dashboard-chart">
+                <ons-row class="page-chart-dashboard">
+                    <ons-col>
+                      <div class="title-chart">Penyerapan Anggaran Perkotama</div>
+                      <div id="papChart" class="chart-margin"></div>
+                    </ons-col>
+                </ons-row>
+            </div>
+            <!-- Table Content -->
+            <div class="dashboard-chart padding-lr-10">
+                <ons-row>
+                  <ons-col>
+                    <table class="content-table content-table-highlight content-table-horizontal">
+                      <thead>
+                        <tr>
+                          <th>Kotama</th>
+                          <th>Anggaran</th>
+                          <th>Penyerapan</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Kementerian Pertahanan</td>
+                          <td>80.129.000.000</td>
+                          <td>80.129.000.000</td>
+                        </tr>
+                        <tr>
+                          <td>Mabes TNI</td>
+                          <td>57.129.000.000</td>
+                          <td>57.129.000.000</td>
+                        </tr>
+                        <tr>
+                          <td>TNI AD</td>
+                          <td>47.129.000.000</td>
+                          <td>47.129.000.000</td>
+                        </tr>
+                        <tr>
+                          <td>TNI AU</td>
+                          <td>18.129.000.000</td>
+                          <td>18.129.000.000</td>
+                        </tr>
+                        <tr>
+                          <td>TNI AL</td>
+                          <td>14.129.000.000</td>
+                          <td>14.129.000.000</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </ons-col>
+                </ons-row>
+            </div>
 
             
             

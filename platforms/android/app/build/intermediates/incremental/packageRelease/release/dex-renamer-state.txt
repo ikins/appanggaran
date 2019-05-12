@@ -1,4 +1,4 @@
-#Wed Apr 03 15:54:34 ICT 2019
+#Sun May 12 21:45:32 ICT 2019
 base.0=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0
 path.0=classes.dex
 renamed.0=classes.dex

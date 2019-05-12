@@ -524,92 +524,66 @@ appang.controller('PagePenyerapanPerjenisAnggaran', ['$scope', '$http', function
 
       var chartConfig = {
 
-        chart: { 
-              type: 'column',
-          backgroundColor:'#ffffff'
-            },
-        colors: ['#06693c','#f47a27','#4284c1'],
-            title: {
-                text: "Tahun Anggaran <br>"+year_current,
-          style: { color:'#333' }
-            },
-            subtitle: 
-            {
-                text: ' ' 
-            },
-            xAxis: {
-                categories: [''],
-                gridLineWidth: 1,
-                gridLineDashStyle: 'dot',
-                labels: {
-                  rotation  : -70, 
-                  align : 'right',
-            style: { color:'#333' }
-                }
-            },
-            yAxis: {
-                min: 0, 
-                title: {
-                    text: "Anggaran Program <br>"+year_current ,
-            style: { color:'#333' }
-                },
-                stackLabels: {
-                    //enabled: true,
-                    style: {
-                        fontWeight: 'bold',
-                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
-                    }
-                }
-            },
-        exporting: { enabled : false },
-            legend: {
-                align: 'center',
-                // x: -20,
-                verticalAlign: 'bottom',
-                // y: 10,
-                floating: false,
-                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColorSolid) || '#f4f4f4',
-                borderColor: '#333',
-                borderWidth: 1,
-                shadow: false,
-                layout: 'horizontal',
-          itemStyle : { color:'#333' }
-            },
-            tooltip: { 
-                formatter: function() {
-                    return '<b>'+ this.x +'</b>'+
-                        this.series.name +':  '+ Highcharts.numberFormat(this.y,0)
-                        // +'<br/>'+
-                        // 'Total: '+ this.point.stackTotal;
-                }
-            },
-            plotOptions: {
-                column: {
-                    stacking: '',
-                    dataLabels: {
-                        enabled: true,
-                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || '#333333'
-                    }
-                }
-            },
-            credits: {
-                enabled: false
-            },
-        series: [{
-                    name: 'Barang dan Jasa',
-                    data: [100]
-
-                }, {
-                    name: 'Pembayaran Gaji',
-                    data: [90]
-
-                }, {
-                    name: 'Kegiatan Prioritas',
-                    data: [80]
-
-                } ]
+      chart: {
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false,
+          type: 'pie'
+      },
+      title: {
+          text: ''
+      },
+      tooltip: {
+          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      plotOptions: {
+          pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              dataLabels: {
+                  enabled: true,
+                  format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                  style: {
+                      color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                  }
+              }
+          }
+      },
+      credits: {
+            enabled: false
+        },
+      series: [{
+          name: 'Brands',
+          colorByPoint: true,
+          data: [{
+              name: 'Barang dan Jasa',
+              y: 30,
+              sliced: true,
+              selected: true
+          }, {
+              name: 'Alutsista',
+              y: 20
+          }, {
+              name: 'Pembangunan dan pengembangan fasilitas',
+              y: 15
+          }, {
+              name: 'Kegiatan Prioritas',
+              y: 10
+          }, {
+              name: 'Anggaran Perjenis Belanja',
+              y: 15
+          }, {
+              name: 'Pembayaran Gaji',
+              y: 5
+          }, {
+              name: 'Tunjangan Kinerja',
+              y: 5
+          }]
+      }]
 
     };
+
+
 
       Highcharts.setOptions({
       lang: {
@@ -852,7 +826,7 @@ appang.controller('PagePenyerapanAnggaran5TahunTerakhir', ['$scope', '$http', fu
         type: 'column'
         },
         title: {
-            text: 'Penyerapan Anggaran 5 Tahun Terakhir'
+            text: ''
         },
         subtitle: {
             text: ''
@@ -915,6 +889,194 @@ appang.controller('PagePenyerapanKegiatanPrioritas', ['$scope', '$http', functio
 }]);
 
 appang.controller('PagePerkembanganPengadaanAlutsista', ['$scope', '$http', function($scope, $http) {
+
+}]);
+
+//12 Mei 2019
+
+appang.controller('PageAnggaranPerkotama', ['$scope', '$http', function($scope, $http) {
+  var year_current = (new Date()).getFullYear();
+
+      var chartConfig = {
+
+        chart: {
+                renderTo: 'container',
+                type: 'pie'
+            },
+            title: {
+                text: ''
+            },
+            yAxis: {
+                title: {
+                    text: ''
+                }
+            },
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        enabled: true,
+                        distance: -20,
+                        style: {
+                            fontWeight: 'bold',
+                            color: 'black'
+                        }
+                    },
+                }
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Anggaran Perkotama',
+                data: [["Kemhan",37],["Mabes TNI",26],["TNI AD",22],["TNI AU",8],["TNI AL",7]],
+                size: '100%',
+                innerSize: '60%',
+                showInLegend:true,
+                dataLabels: {
+                    enabled: true
+                }
+            }]
+    };
+
+      Highcharts.setOptions({
+      lang: {
+        thousandsSep: ','
+      }
+    });
+
+    $scope.chartConfig = chartConfig;
+    $('#apChart').highcharts(chartConfig);
+
+
+}]);
+
+
+appang.controller('PagePenyerapanAnggaranPerkotama', ['$scope', '$http', function($scope, $http) {
+  var year_current = (new Date()).getFullYear();
+
+      var chartConfig = {
+
+        chart: {
+        type: 'column'
+        },
+        title: {
+            text: ''
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: [
+                'Kemhan',
+                'Mabes TNI',
+                'TNI AD',
+                'TNI AU',
+                'TNI AL',
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Percent (%)'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },    
+        credits: {
+            enabled: false
+        },
+        series: [{
+          showInLegend: false,
+            name: '2019',
+            data: [37, 26, 22, 8, 7]
+
+        }]
+    };
+
+      Highcharts.setOptions({
+      lang: {
+        thousandsSep: ','
+      }
+    });
+
+    $scope.chartConfig = chartConfig;
+    $('#papChart').highcharts(chartConfig);
+
+
+}]);
+
+appang.controller('PageAnggaranPerbulan', ['$scope', '$http', function($scope, $http) {
+  var year_current = (new Date()).getFullYear();
+
+      var chartConfig = {
+
+        chart: {
+                renderTo: 'container',
+                type: 'pie'
+            },
+            title: {
+                text: ''
+            },
+            yAxis: {
+                title: {
+                    text: ''
+                }
+            },
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        enabled: true,
+                        distance: -20,
+                        style: {
+                            fontWeight: 'bold',
+                            color: 'black'
+                        }
+                    },
+                }
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Anggaran Perkotama',
+                data: [["Kemhan",37],["Mabes TNI",26],["TNI AD",22],["TNI AU",8],["TNI AL",7]],
+                size: '100%',
+                innerSize: '60%',
+                showInLegend:true,
+                dataLabels: {
+                    enabled: true
+                }
+            }]
+    };
+
+      Highcharts.setOptions({
+      lang: {
+        thousandsSep: ','
+      }
+    });
+
+    $scope.chartConfig = chartConfig;
+    $('#apChart').highcharts(chartConfig);
+
 
 }]);
 

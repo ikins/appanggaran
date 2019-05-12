@@ -1,9 +1,9 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "AppAnggaran",
-  "short_name": "AppAnggaran",
-  "version": "com.anggaran.app",
+  "name": "Simona",
+  "short_name": "Simona",
+  "version": "com.simona.app",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "author": "Apache Cordova Team",
   "icons": [

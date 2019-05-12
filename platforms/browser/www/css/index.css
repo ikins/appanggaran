@@ -113,25 +113,34 @@ body{
 }
 
 .logo-img-pin{
-  margin-top: 130px;
+  margin-top: 80px;
   text-align: center;
 }
 
-.foot-logo{
-  position: absolute;
-  margin: 0 auto;
-  bottom: 20px;
+.foot-logo-landing{
+  text-align: center;
+  margin-top: 280px;
 }
 
-.foot-logo img{
-  width: 100px;
+.foot-logo-login{
+  text-align: center;
+  margin-top: 200px;
 }
 
-.foot-logo p{
+.foot-logo-pin{
+  text-align: center;
+  margin-top: 80px;
+}
+
+.foot-logo-landing img, .foot-logo-login img, .foot-logo-pin img{
+  width: 70px;
+}
+
+.foot-logo-landing p, .foot-logo-login p, .foot-logo-pin p{
 
   text-align: center;
   font-family: 'Raleway', sans-serif;
-  font-size: 9px;
+  font-size: 14px;
   color: #fff;
   margin-top: 14px;
   text-transform: uppercase;
@@ -660,7 +669,7 @@ a.log-a {
 *-----------------------------------
 */
 
-.button-signin, .button-register, .button-lupa {
+.button-signin, .button-register, .button-lupa, .button-all {
     box-sizing: border-box;
     margin: 0;
     background: #ff9901;
@@ -841,16 +850,19 @@ a.log-a {
     font: normal 12px Arial, sans-serif;
     margin-bottom: 10px;
     background-color: #f1f1f1;
+    width: 100%;
 }
 .content-table thead th {
-    text-align: left;
-    color: #666;
-    text-shadow: 1px 1px 1px #fff;
+    text-align: center;
+    color: #fffdfd;
+    font-size: 14px;
     border-top: solid 1px #2980b9;
+    background-color: #186da5;
+    padding: 10px 0;
 }
 .content-table tbody td {
-    border: solid 1px #2980b9;
-    padding: 5px;
+    border: solid 1px #89c3e8;
+    padding: 10px;
 }
 .content-table-highlight tbody tr:hover {
     background-color: #d6d5d5;
@@ -1157,4 +1169,13 @@ a.log-a {
    margin-top: 20px;
    bottom:0;
    left:0;
+}
+
+
+/** Padding 
+*-----------------------------------
+*/
+
+.padding-lr-10{
+  padding: 0 10px;
 }

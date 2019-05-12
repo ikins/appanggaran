@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Apr 03 01:43:38 ICT 2019
+#Wed Apr 03 22:42:58 ICT 2019
 210.set=ASSET
 2.path=www/lib/onsen/esm/ons/elements.js
 14.set=ASSET
@@ -143,7 +143,7 @@
 87.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 10.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 57.path=www/lib/angular/angular-route.js
-32.path=www/lib/onsen/css/onsenui.css
+32.path=www/img/simona.png
 255.set=ASSET
 196.set=ASSET
 84.path=www/lib/onsen/css-components-src/src/components/toolbar.css
@@ -240,7 +240,7 @@
 11.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 93.baseType=DIRECTORY
 58.path=www/lib/onsen/esm/elements/ons-navigator/ios-fade-animator.js
-33.path=www/lib/onsen/esm/elements/ons-ripple/animator-css.js
+33.path=www/lib/onsen/css/onsenui.css
 251.baseType=DIRECTORY
 265.set=ASSET
 179.baseType=DIRECTORY
@@ -333,7 +333,7 @@
 12.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 145.baseType=DIRECTORY
 59.path=www/lib/onsen/CHANGELOG.md
-34.path=www/img/simona.png
+34.path=www/lib/onsen/esm/elements/ons-ripple/animator-css.js
 86.path=www/lib/onsen/css-components-src/yarn.lock
 149.base=E\:\\xampp\\htdocs\\project\\menhan\\android\\appanggaran\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 79.set=ASSET

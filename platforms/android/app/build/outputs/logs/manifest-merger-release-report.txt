@@ -9,7 +9,7 @@ INJECTED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\andro
 INJECTED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
 INJECTED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
 	package
-		ADDED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml:2:102-128
+		ADDED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml:2:102-126
 		INJECTED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml
 		INJECTED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml
 	android:versionName
@@ -19,7 +19,7 @@ INJECTED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\andro
 	android:hardwareAccelerated
 		ADDED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml:2:129-187
+		ADDED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml:2:127-185
 	android:versionCode
 		ADDED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml:2:46-73
 		INJECTED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml
@@ -52,7 +52,7 @@ ADDED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\
 		ADDED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
 	android:icon
 		ADDED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml:5:53-80
-activity#com.anggaran.app.MainActivity
+activity#com.simona.app.MainActivity
 ADDED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:20
 	android:label
 		ADDED from E:\xampp\htdocs\project\menhan\android\appanggaran\platforms\android\app\src\main\AndroidManifest.xml:6:97-134
